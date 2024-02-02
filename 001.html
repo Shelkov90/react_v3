@@ -1,0 +1,56 @@
+1. Создать проект на github
+у меня react_v2
+
+//Свяжите локальный репозиторий с удаленным
+//ссылку скопируйте с github
+git remote add origin https://github.com/sktatanya/react_v2.git
+
+//Объедините локальную и удаленные ветки
+git push -u origin master
+
+// установим gh-pages в режиме разработки
+npm install gh-pages --save-dev
+
+//см. package.json внизу
+"devDependencies": {
+  "gh-pages": "^6.1.1"
+}
+
+//package.json  "scripts":
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+
+//команды с pre автоматически запускаются с одноименными командами
+
+//добавьте адресс gh-pages
+{
+  "name": "spa_routing",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://sktatanya.github.io/react_v2",
+  ...
+
+  //https://sktatanya.github.io/react_v2
+  //https://имя_аккаунта.github.io/имя_репозитория
+
+  git add .
+  git commit -m "gh-page add"
+  git push
+  npm run deploy
+
+  //дождитесь сообщения
+  // Published
+
+  // на github появится ветка gh-pages
+  // зайдите в Settings/Pages 
+  // можно перейти на сайт
+
+  //сайт может быть некоторое время недоступен
+
+
+  ____
+  если в проекте с роутингом возникли проблемы, укажите в базовом пути имя имя_репозитория
+  <!-- <Router basename='имя репозитория'> -->
+  <Router basename='react_v2'>
+    ...
+  </Router>
